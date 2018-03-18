@@ -15,29 +15,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
-    <a href="http://getbootstrap.com/javascript/#modals"></a>
-      
-    <style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-      width: 900px;
-
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-
-    }
-
-
-  </style>
+   
     
 
       
@@ -107,12 +85,14 @@
                 <li><a href="{{ route('kelas.index') }}"><i class="fa fa-circle-o"></i> Kelas</a></li>
                 <li><a href="{{ route('jadwal.index') }}"><i class="fa fa-circle-o"></i> Jadwal</a></li>
                
+                <li><a href="{{ route('siswa.index') }}"><i class="fa fa-circle-o"></i> Siswa</a></li>
+                <li><a href="{{ route('nilai.index') }}"><i class="fa fa-circle-o"></i> Nilai</a></li>
                  <li><a href="{{ route('absensi.index') }}"><i class="fa fa-circle-o"></i> Absensi Siswa</a></li>
                 <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> User</a></li>
                 
                     @endrole
                     
-                 @role(['guru','admin'])
+                 @role('guru')
                  <li><a href="{{ route('siswa.index') }}"><i class="fa fa-circle-o"></i> Siswa</a></li>
                   <li><a href="{{ route('nilai.index') }}"><i class="fa fa-circle-o"></i> Nilai</a></li>
                      @endrole
@@ -129,7 +109,11 @@
       </aside>
                         
      
-               
+               <div class="content-wrapper">
+        <div class="page-title">
+          
+          
+        </div>
       @yield('content')
    
     <!-- Javascripts-->
@@ -147,39 +131,6 @@
       <script type="text/javascript" src="{{ asset ('admin/js/plugins/sweetalert.min.js') }}"></script>
      
   
-    <script type="text/javascript">
-      $('#demoNotify').click(function(){
-        $.notify({
-          title: "Update Complete : ",
-          message: "Something cool is just updated!",
-          icon: 'fa fa-check' 
-        },{
-          type: "info"
-        });
-      });
-       $('#demoSelect').select2();
-      
-      $('#demoSwal').click(function(){
-        swal({
-          title: "Apa Anda Ingin Menghapus?",
-          text: "Data Yang Dihapus Tidak Dapat Kembali!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonText: "Yes, delete it!",
-          cancelButtonText: "No, cancel plx!",
-          closeOnConfirm: true,
-          closeOnCancel: false
-        }, function(isConfirm) {
-          if (isConfirm) {
-            swal("Hapus!", "Berhasil Menghapus.", "success");
-          } else {
-            swal("Batal", "Batal Menghapus :)", "error");
-          }
-        });
-      });
-   
-        
-    </script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
   </body>

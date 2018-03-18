@@ -1,38 +1,16 @@
-@extends('layouts.admin')
+@extends('layouts.a')
 
 @section('content')
 
-<div class="content-wrapper">
-        <div class="page-title">
-          <div>
-            <h1><i class="fa fa-th-list"></i> Data Pembayaran</h1>
-          
-          </div>
-          <div>
-            <ul class="breadcrumb side">
-              <li><i class="fa fa-home fa-lg"></i></li>
-              <li class="active">Data Pembayaran</li>
-            </ul>
-          </div>
-        </div>
-         
-        <div class="row">
+  <div class="row">
 
           <div class="col-md-12">
             <div class="card">
                
               <div class="card-body">
 
-                <form action="{{url('/laporan/pembayaran1')}}" method="post">
-      {{csrf_field()}}
-      <label>Dari Tanggal</label>
-      <input type="date" name="a" value="{{$a}}" readonly="">
-      <label>Sampai Tanggal</label>
-      <input type="date" name="b" value="{{$b}}" readonly="">
-      <input type="submit" name="submit" class="btn btn-info" value="Cetak PDF">
-      </form>
-              
-              <center><h3>Laporan Pembelian</h3><br>
+                
+              <center><h3>Laporan Pembayaran</h3><br>
                 <h6>Dari tanggal {{$a}} sampai tanggal {{$b}}</h6></center>
                   
 
@@ -72,9 +50,14 @@
                   
                 </table>
               </div>
+               <div class="row hidden-print mt-20">
+                  <div class="col-xs-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Print</a></div>
+                </div>
             </div>
+
           </div>
         </div>
                   
-       
+    
+   
 @endsection
